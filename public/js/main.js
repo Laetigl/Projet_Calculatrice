@@ -2,25 +2,36 @@
 // let numbers = [0,1,2,3,4,5,6,7,8,9]
 
 let resultScreen = document.querySelector("h3")
-console.log(resultScreen.innerText);
-
 let numbersElements = document.querySelectorAll("button")
-console.log(numbersElements);
-// let numbersArray = Array.from(numbersElements)
 
-let operatorsFive = document.querySelectorAll(".numbers button")
-console.log(operatorsFive);
-// let operatorsFiveArray = Array.from(operatorsFive)
-let calcul = ""
+let calculator = ""
+
 Array.from(numbersElements).forEach(element => {
+    calculator=""
     element.addEventListener('click', ()=>{
-    element.value
-    console.log(element.value);
-    calcul += element.value
-    resultScreen.innerText=calcul
-    console.log(resultScreen.innerText);
+        if(element.value === "="){ //si appuie sur "=" alors texte du calcul affiché dans la barre de résultat
+            // resultScreen.innerText = eval(calculator)
+            resultScreen.innerText = eval(calculator)
+
+        } 
+        else if (element.value === "C") {
+            resultScreen.innerText = ""
+        }
+        else{
+            // console.log(element.value);
+            console.log(element.value);
+            calculator += element.value //increment the value of the button into the calculator
+            // resultScreen.innerText=eval(calculator) //displaying the result of the calcul
+            resultScreen.innerText = calculator
+            console.log(calculator);
+        }
+
+
+        
+        
 })
     
+
 })
 
 
