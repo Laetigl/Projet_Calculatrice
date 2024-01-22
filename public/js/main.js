@@ -1,6 +1,3 @@
-// let operations = ["+","-","x","/","="]
-// let numbers = [0,1,2,3,4,5,6,7,8,9]
-
 let resultScreen = document.querySelector("h3")
 let numbersElements = document.querySelectorAll("button")
 
@@ -14,9 +11,12 @@ Array.from(numbersElements).forEach(element => {
             resultScreen.innerText = eval(calculator)
 
         } 
-        else if (element.value === "C") {
-            resultScreen.innerText = ""
+
+        else if (element.value === "C") { //reset à 0
+            resultScreen.innerText = "0"
+            calculator=" " //vide
         }
+
         else{
             // console.log(element.value);
             console.log(element.value);
@@ -25,13 +25,9 @@ Array.from(numbersElements).forEach(element => {
             resultScreen.innerText = calculator
             console.log(calculator);
         }
-
-
-        
-        
-})
+          
+    })
     
-
 })
 
 
