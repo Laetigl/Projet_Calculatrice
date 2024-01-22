@@ -2,25 +2,29 @@ let resultScreen = document.querySelector("h3")
 let numbersElements = document.querySelectorAll("button")
 
 let calculator = ""
-// let lastElement=""
+//P.S. : The value assign to the buttons will be useful for the calculation: calcul will be executed by refering to the value itself
 
 Array.from(numbersElements).forEach(element => {
     calculator=""
     element.addEventListener('click', ()=>{
-        // if (lastElement == (element.value.length-1)) {
-        //     resultScreen.disabled = true
-        // }
-        if (calculator=="" && ["+","-","/","*"].includes(element.value)) { //condition that forbid to click for the first time on the operator
-            return;
+        //First condition to prevent to use an operators first :
+        if (calculator == "" && ["+","-","/","*"].includes(element.value)) { //condition that forbid to click for the first time on the operator : if the calculator is empty and the value of the button is one of the operators
+            return; //if it's the case, the operation will not run
         }
-        try{
+
+        //Second condition to prevent to replicate an operator in the calculator :
+        if (["+","-","/","*"].includes(element.value) && ["+","-","/","*"].includes(calculator.slice(-1))) { //condition that will forbid to used 2 times in  a row the operators: will check if the operators are in the element AND if the last element of the calculator included it
+            return;//if it's the case, the operation will not run
+        }
+
+        try{ //try function will run the statement
             if(element.value === "="){ //si appuie sur "=" alors texte du calcul affiché dans la barre de résultat
-                resultScreen.innerText = eval(calculator) //display a string
+                resultScreen.innerText = eval(calculator) //display a string of the calculation donne
             } 
 
-            else if (element.value === "C") { //reset à 0
+            else if (element.value === "C") { //reset to 0
                 resultScreen.innerText = "0"
-                calculator=" " //vide
+                calculator=" " //empty the calcul
             }
             
             else{
@@ -32,7 +36,7 @@ Array.from(numbersElements).forEach(element => {
             }
 
         }
-        catch(err){
+        catch(err){  //the catch function will display a message (here "ERROR") if he finds that the statement is not possible
             resultScreen.innerText="ERROR"
         }
           
