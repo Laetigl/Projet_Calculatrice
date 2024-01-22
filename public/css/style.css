@@ -6,20 +6,40 @@ body{
 }
 
 .frameSection{
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     /* flex-direction: column; */
     /* align-items: end; */
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 700px;
     border: 10px solid rgb(19, 94, 46);
     overflow: hidden;
     gap:10px;
     padding-right: 10px;
 }
 
+.allCalcul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+
+}
+
+.result{
+    width: 80%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    box-shadow: 2px 2px 2px black;
+    margin-top: 10px;
+    margin-left: 30px;
+    
+}
 .numbers{
-    width: 70%;
+    width: 90%;
     display: flex;
     justify-content: center;
     gap:10px;
@@ -29,12 +49,13 @@ body{
 }
 
 .buttonsnumbers{
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border: 2px solid black;
     box-shadow: 2px 2px 2px black;
     text-align: center;
 }
+
 .buttonsnumbers{
     cursor: pointer;
 }
@@ -42,10 +63,9 @@ body{
 .operators{
     width: 30%;
     display: flex;
-    justify-content: center;
+    justify-content: center;flex-wrap:wrap;
+    padding-top:20px;
     gap:10px;
-    flex-wrap:wrap;
-    padding-top:20px
 }
 
 .buttonsoperators{
@@ -55,4 +75,6 @@ body{
     box-shadow: 2px 2px 2px black;
     text-align: center;
     cursor: pointer;
+    justify-content: space-between;
+  
 }

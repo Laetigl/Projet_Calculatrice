@@ -1,7 +1,27 @@
-let operations = ["+","-","x","/","="]
-let numbers = [0,1,2,3,4,5,6,7,8,9]
+// let operations = ["+","-","x","/","="]
+// let numbers = [0,1,2,3,4,5,6,7,8,9]
 
+let resultScreen = document.querySelector("h3")
+console.log(resultScreen.innerText);
 
+let numbersElements = document.querySelectorAll("button")
+console.log(numbersElements);
+// let numbersArray = Array.from(numbersElements)
+
+let operatorsFive = document.querySelectorAll(".numbers button")
+console.log(operatorsFive);
+// let operatorsFiveArray = Array.from(operatorsFive)
+let calcul = ""
+Array.from(numbersElements).forEach(element => {
+    element.addEventListener('click', ()=>{
+    element.value
+    console.log(element.value);
+    calcul += element.value
+    resultScreen.innerText=calcul
+    console.log(resultScreen.innerText);
+})
+    
+})
 
 
 
