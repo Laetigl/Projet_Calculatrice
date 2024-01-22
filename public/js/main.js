@@ -2,28 +2,38 @@ let resultScreen = document.querySelector("h3")
 let numbersElements = document.querySelectorAll("button")
 
 let calculator = ""
+// let lastElement=""
 
 Array.from(numbersElements).forEach(element => {
     calculator=""
     element.addEventListener('click', ()=>{
-        if(element.value === "="){ //si appuie sur "=" alors texte du calcul affiché dans la barre de résultat
-            // resultScreen.innerText = eval(calculator)
-            resultScreen.innerText = eval(calculator)
-
-        } 
-
-        else if (element.value === "C") { //reset à 0
-            resultScreen.innerText = "0"
-            calculator=" " //vide
+        // if (lastElement == (element.value.length-1)) {
+        //     resultScreen.disabled = true
+        // }
+        if (calculator=="" && ["+","-","/","*"].includes(element.value)) { //condition that forbid to click for the first time on the operator
+            return;
         }
+        try{
+            if(element.value === "="){ //si appuie sur "=" alors texte du calcul affiché dans la barre de résultat
+                resultScreen.innerText = eval(calculator) //display a string
+            } 
 
-        else{
-            // console.log(element.value);
-            console.log(element.value);
-            calculator += element.value //increment the value of the button into the calculator
-            // resultScreen.innerText=eval(calculator) //displaying the result of the calcul
-            resultScreen.innerText = calculator
-            console.log(calculator);
+            else if (element.value === "C") { //reset à 0
+                resultScreen.innerText = "0"
+                calculator=" " //vide
+            }
+            
+            else{
+                console.log(element.value);
+                calculator += element.value //increment the value of the button into the calculator
+                // resultScreen.innerText=eval(calculator) //displaying the result of the calcul
+                resultScreen.innerText = calculator
+                console.log(calculator);
+            }
+
+        }
+        catch(err){
+            resultScreen.innerText="ERROR"
         }
           
     })
